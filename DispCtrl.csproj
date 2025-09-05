@@ -16,6 +16,8 @@
 
 		<SupportedOSPlatformVersion Condition="'$(TargetFramework)'=='net9.0-ios'">15.0</SupportedOSPlatformVersion>
 		<PublishTrimmed>true</PublishTrimmed>
+		<FileVersion>2</FileVersion>
+		<AssemblyVersion></AssemblyVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
@@ -45,6 +47,12 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|iPhone'">
 		<CodesignKey>Apple Distribution: Yong Uk Lee (ZFSNPDDRUB)</CodesignKey>
 		<CodesignProvision>DispCtrl_MAUI_Distribution_Profile</CodesignProvision>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <ApplicationVersion>6</ApplicationVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <ApplicationVersion>6</ApplicationVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
