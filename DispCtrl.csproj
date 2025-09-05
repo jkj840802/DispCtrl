@@ -12,7 +12,7 @@
 
 		<ApplicationTitle>DispCtrl</ApplicationTitle>
 		<ApplicationDisplayVersion>1.2</ApplicationDisplayVersion>
-		<ApplicationVersion>5</ApplicationVersion>
+		<ApplicationVersion>6</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="'$(TargetFramework)'=='net9.0-ios'">15.0</SupportedOSPlatformVersion>
 		<PublishTrimmed>true</PublishTrimmed>
