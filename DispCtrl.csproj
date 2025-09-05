@@ -38,7 +38,6 @@
 		<CodesignEntitlements>Platforms/iOS/Entitlements.Release.plist</CodesignEntitlements>
 		<TargetDeviceFamilies>iPhone</TargetDeviceFamilies>
 		<RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
-		<PublishTrimmed>false</PublishTrimmed>
 		<MtouchUseLlvm>true</MtouchUseLlvm>
 	</PropertyGroup>
 
