@@ -1,0 +1,20 @@
+
+Name : DispCtrlKey
+개발자코드 : 508b378a-9b1b-4e82-8f80-d53552bf5c0b
+Key ID : N43585SC7A
+
+
+개발
+Apple Development: Yong Uk Lee (9XMMJ37KXG)
+
+DispCtrl_MAUI_Dis_Profile
+
+
+배포
+Apple Distribution: Yong Uk Lee (ZFSNPDDRUB)
+
+DispCtrl_MAUI_Distribution_Profile
+
+
+
+dotnet publish -f net9.0-ios -c Release -p:ArchiveOnBuild=true -p:CodesignKey="Apple Distribution: Yong Uk Lee (ZFSNPDDRUB)" -p:CodesignProvision="ispCtrl_MAUI_Distribution_Profile"

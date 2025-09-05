@@ -1,0 +1,9 @@
+서명 암호 (별칭 암호 같음) scauto5678!
+
+별칭 이름 dispctrl_key
+
+안드로이드 콘솔 릴리즈 빌드 코드
+dotnet publish -c Release -f net9.0-android /p:AndroidPackageFormat=aab
+
+업로드용 이미지 생성(1024x500)
+ILoveIMG - Resize Image

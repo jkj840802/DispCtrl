@@ -1,0 +1,23 @@
+﻿# IDE/툴
+.vs/
+.vscode/
+
+# 빌드 산출물
+bin/
+obj/
+
+# iOS/배포 산출물
+*.ipa
+*.app
+*.mobileprovision
+*.pdb
+*.aotdata.*
+
+# 키/비밀
+*.p8
+*.keystore
+*.key
+*.pem
+
+# 개인 메모(비밀 가능성)
+맥 ios 빌드 정보.txt

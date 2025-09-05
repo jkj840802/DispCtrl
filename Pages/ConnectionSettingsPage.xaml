@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DispCtrl.ConnectionSettingsPage"
+    Title="통신 설정"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label 
+            Text="통신 방식 선택"
+            FontSize="24"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+
+        <Picker 
+            x:Name="CommPicker"
+            Title="방식 선택"
+            FontSize="20"
+            TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}" />
+
+        <Button 
+            Text="저장" 
+            FontSize="20"
+            Clicked="OnSaveClicked"
+            TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}"
+            BackgroundColor="{StaticResource Primary}" />
+    </VerticalStackLayout>
+</ContentPage>

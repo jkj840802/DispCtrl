@@ -1,0 +1,19 @@
+<!-- 솔루션 최상위/Directory.Build.props -->
+<Project>
+	<PropertyGroup>
+		<AndroidUseAapt2>true</AndroidUseAapt2>
+		<!-- BaseIntermediateOutputPath: obj\Debug\net9.0-android\ -->
+		<AndroidAssetsIntermediateDirectory>$(BaseIntermediateOutputPath)assets</AndroidAssetsIntermediateDirectory>
+		<MonoAndroidAssetsDirIntermediate>$(AndroidAssetsIntermediateDirectory)</MonoAndroidAssetsDirIntermediate>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- 빌드 초반에 경로를 찍어 봅니다 -->
+		<_DumpAssetsDir>$(AndroidAssetsIntermediateDirectory)</_DumpAssetsDir>
+		
+	</PropertyGroup>
+
+	<Target Name="DumpAssetsDir" BeforeTargets="_CreateBaseApkWithAapt2">
+		<Message Importance="High" Text=">> AndroidAssetsIntermediateDirectory = '$(_DumpAssetsDir)'" />
+	</Target>
+</Project>

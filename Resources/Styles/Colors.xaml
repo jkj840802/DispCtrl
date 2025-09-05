@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="Red">#FF0000</Color>
+    <!-- Brand Colors: 밝고 깔끔한 블루/그린/옐로우 계열 -->
+    <Color x:Key="Primary">#2196F3</Color>
+    <Color x:Key="MidnightBlue">#2196F3</Color>
+    <!-- 맑은 블루 -->
+    <Color x:Key="PrimaryDark">#1976D2</Color>
+    <!-- 블루 대비 -->
+    <Color x:Key="PrimaryDarkText">#212121</Color>
+    <!-- 텍스트용 진회색 -->
+
+    <Color x:Key="Secondary">#4CAF50</Color>
+    <!-- 선명한 그린 -->
+    <Color x:Key="SecondaryDarkText">#1B5E20</Color>
+    <!-- 그린 계열 진회색 텍스트 -->
+
+    <Color x:Key="Tertiary">#FFC107</Color>
+    <!-- 부드러운 옐로우 -->
+
+    <!-- 기본 흑백 -->
+    <Color x:Key="White">#FFFFFF</Color>
+    <Color x:Key="Black">#000000</Color>
+
+    <!-- 그레이 스케일 (필요시 그대로 사용) -->
+    <Color x:Key="Gray100">#F5F5F5</Color>
+    <Color x:Key="Gray200">#EEEEEE</Color>
+    <Color x:Key="Gray300">#E0E0E0</Color>
+    <Color x:Key="Gray400">#BDBDBD</Color>
+    <Color x:Key="Gray500">#9E9E9E</Color>
+    <Color x:Key="Gray600">#757575</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#121212</Color>
+
+    <!-- Brush 매핑 (키 그대로 유지) -->
+    <SolidColorBrush x:Key="PrimaryBrush"   Color="{StaticResource Primary}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
+    <SolidColorBrush x:Key="TertiaryBrush"  Color="{StaticResource Tertiary}" />
+    <SolidColorBrush x:Key="WhiteBrush"     Color="{StaticResource White}" />
+    <SolidColorBrush x:Key="BlackBrush"     Color="{StaticResource Black}" />
+    <SolidColorBrush x:Key="RedBrush"       Color="{StaticResource Red}" />
+
+    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}" />
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}" />
+    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}" />
+    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}" />
+    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}" />
+    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}" />
+    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}" />
+    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}" />
+
+    <!-- ✅ 1단계: 테마별 실제 색상 정의 -->
+    <Color x:Key="PageBackgroundLight">#FFFFFF</Color>
+    <Color x:Key="PageBackgroundDark">#1E1E1E</Color>
+    <Color x:Key="TextColorLight">#000000</Color>
+    <Color x:Key="TextColorDark">#FFFFFF</Color>
+
+    <!-- ✅ 2단계: SolidColorBrush로 AppThemeBinding 적용 -->
+    <SolidColorBrush x:Key="PageBackgroundBrush">
+        <SolidColorBrush.Color>
+            <AppThemeBinding Light="{StaticResource PageBackgroundLight}"
+                             Dark="{StaticResource PageBackgroundDark}" />
+        </SolidColorBrush.Color>
+    </SolidColorBrush>
+
+    <SolidColorBrush x:Key="TextColorBrush">
+        <SolidColorBrush.Color>
+            <AppThemeBinding Light="{StaticResource TextColorLight}"
+                             Dark="{StaticResource TextColorDark}" />
+        </SolidColorBrush.Color>
+    </SolidColorBrush>
+</ResourceDictionary>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    x:Class="DispCtrl.UrgentMessagePage"
+    Title="긴급메시지 설정"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="White">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="24">
+
+                <!-- 상단 제목 -->
+                <Label Text="🔴 긴급메시지 설정"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <!-- 메시지 1 -->
+                <VerticalStackLayout Spacing="4">
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Label Text="메시지 1"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               Grid.Column="0" />
+                        <Label x:Name="MessageUnitLabel1"
+                               Text="0 / 18"
+                               FontSize="12"
+                               TextColor="Gray"
+                               Grid.Column="1"
+                               HorizontalTextAlignment="End"/>
+                    </Grid>
+
+                    <StackLayout Spacing="0">
+                        <Entry x:Name="MessageEntry1"
+                               Placeholder="내용을 입력하세요"
+                               FontSize="16"
+                               TextColor="Black"
+                               TextChanged="OnMessageEntry1TextChanged" />
+                        <BoxView HeightRequest="1" Background="{StaticResource Gray400Brush}" />
+                    </StackLayout>
+                    <HorizontalStackLayout Spacing="10">
+                        <Grid WidthRequest="120" HeightRequest="40">
+                            <Label x:Name="Picker1Label"
+                                   Text="색상선택"
+                                   TextColor="Gray" 
+                                   FontSize="16"
+                                   InputTransparent="True"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   Margin="10,0,0,0"/>
+
+                            <Picker x:Name="UrgentColorPicker1"
+                                    IsVisible="False" 
+                                    SelectedIndexChanged="OnUrgentColorPicker1Changed">
+                                <Picker.Items>
+                                    <x:String>빨강 (Red)</x:String>
+                                    <x:String>초록 (Green)</x:String>
+                                    <x:String>노랑 (Yellow)</x:String>
+                                    <x:String>파랑 (Blue)</x:String>
+                                    <x:String>자주 (Magenta)</x:String>
+                                    <x:String>청록 (Cyan)</x:String>
+                                    <x:String>흰색 (White)</x:String>
+                                </Picker.Items>
+                            </Picker>
+
+                            <Button BackgroundColor="Transparent" Clicked="PickerButton1_Clicked" />
+                        </Grid>
+                        <Button Text="전송" Clicked="OnSendUrgent1Clicked"
+                                    BackgroundColor="#4169E1" TextColor="Wheat"
+                                    Margin="20,0,0,0"
+                                    WidthRequest="140" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!-- 메시지 2 -->
+                <VerticalStackLayout Spacing="4">
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Label Text="메시지 2"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               Grid.Column="0" />
+                        <Label x:Name="MessageUnitLabel2"
+                               Text="0 / 18"
+                               FontSize="12"
+                               TextColor="Gray"
+                               Grid.Column="1"
+                               HorizontalTextAlignment="End" />
+                    </Grid>
+
+                    <StackLayout Spacing="0">
+                        <Entry x:Name="MessageEntry2"
+                               Placeholder="내용을 입력하세요"
+                               FontSize="16"
+                               TextColor="Black"
+                               TextChanged="OnMessageEntry2TextChanged" />
+                        <BoxView HeightRequest="1" Background="{StaticResource Gray400Brush}" />
+                    </StackLayout>
+                    <HorizontalStackLayout Spacing="10">
+                        <Grid WidthRequest="120" HeightRequest="40">
+                            <Label x:Name="Picker2Label"
+                                   Text="색상선택"
+                                   TextColor="Gray" 
+                                   FontSize="16"
+                                   InputTransparent="True"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   Margin="10,0,0,0"/>
+
+                            <Picker x:Name="UrgentColorPicker2"
+                                    IsVisible="False" 
+                                    SelectedIndexChanged="OnUrgentColorPicker2Changed">
+                                <Picker.Items>
+                                    <x:String>빨강 (Red)</x:String>
+                                    <x:String>초록 (Green)</x:String>
+                                    <x:String>노랑 (Yellow)</x:String>
+                                    <x:String>파랑 (Blue)</x:String>
+                                    <x:String>자주 (Magenta)</x:String>
+                                    <x:String>청록 (Cyan)</x:String>
+                                    <x:String>흰색 (White)</x:String>
+                                </Picker.Items>
+                            </Picker>
+
+                            <Button BackgroundColor="Transparent" Clicked="PickerButton2_Clicked" />
+                        </Grid>
+                        <Button Text="전송" Clicked="OnSendUrgent2Clicked"
+                                    BackgroundColor="#4169E1" TextColor="Wheat"
+                                    Margin="20,0,0,0"
+                                    WidthRequest="140" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!-- 메시지 3 -->
+                <VerticalStackLayout Spacing="4">
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Label Text="메시지 3"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               Grid.Column="0" />
+                        <Label x:Name="MessageUnitLabel3"
+                               Text="0 / 18"
+                               FontSize="12"
+                               TextColor="Gray"
+                               Grid.Column="1"
+                               HorizontalTextAlignment="End" />
+                    </Grid>
+                    
+                    <StackLayout Spacing="0">
+                        <Entry x:Name="MessageEntry3"
+                               Placeholder="내용을 입력하세요"
+                               FontSize="16"
+                               TextColor="Black"
+                               TextChanged="OnMessageEntry3TextChanged" />
+                        <BoxView HeightRequest="1" Background="Black" />
+                    </StackLayout>
+                    <HorizontalStackLayout Spacing="10">
+                        <Grid WidthRequest="120" HeightRequest="40">
+                            <Label x:Name="Picker3Label"
+                                   Text="색상선택"
+                                   TextColor="Gray" 
+                                   FontSize="16"
+                                   InputTransparent="True"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   Margin="10,0,0,0"/>
+
+                            <Picker x:Name="UrgentColorPicker3"
+                                    IsVisible="False" 
+                                    SelectedIndexChanged="OnUrgentColorPicker3Changed">
+                                <Picker.Items>
+                                    <x:String>빨강 (Red)</x:String>
+                                    <x:String>초록 (Green)</x:String>
+                                    <x:String>노랑 (Yellow)</x:String>
+                                    <x:String>파랑 (Blue)</x:String>
+                                    <x:String>자주 (Magenta)</x:String>
+                                    <x:String>청록 (Cyan)</x:String>
+                                    <x:String>흰색 (White)</x:String>
+                                </Picker.Items>
+                            </Picker>
+
+                            <Button BackgroundColor="Transparent" Clicked="PickerButton3_Clicked" />
+                        </Grid>
+
+                        <Button Text="전송" Clicked="OnSendUrgent3Clicked"
+                                    BackgroundColor="#4169E1" TextColor="Wheat"
+                                    Margin="20,0,0,0"
+                                    WidthRequest="140" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!-- 전송 결과 -->
+                <Label x:Name="UrgentStatusLabel" Text=" " FontSize="16" HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

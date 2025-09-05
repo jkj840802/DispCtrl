@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>get-task-allow</key>
+		<true/>
+		<!-- Debug용. Release 빌드 배포 전에는 false로 바꾸세요 -->
+	</dict>
+</plist>

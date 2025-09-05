@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0-ios</TargetFramework>
+
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>DispCtrl</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<ApplicationTitle>DispCtrl</ApplicationTitle>
+		<ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
+		<ApplicationVersion>4</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="'$(TargetFramework)'=='net9.0-ios'">15.0</SupportedOSPlatformVersion>
+		<PublishTrimmed>true</PublishTrimmed>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
+		<MtouchLink>None</MtouchLink>
+	</PropertyGroup>
+
+	<!-- Debug (개발용) -->
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net9.0-ios'">
+		<CodesignKey>Apple Development: Yong Uk Lee (ZFSNPDDRUB)</CodesignKey>
+		<CodesignProvision>DispCtrl_Development_Profile</CodesignProvision>
+		<CodesignEntitlements>Platforms/iOS/Entitlements.Debug.plist</CodesignEntitlements>
+		<TargetDeviceFamilies>iPhone</TargetDeviceFamilies>
+	</PropertyGroup>
+
+	<!-- Release (배포용) -->
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Release|net9.0-ios'">
+		<CodesignKey>Apple Distribution: Yong Uk Lee (ZFSNPDDRUB)</CodesignKey>
+		<CodesignProvision>eec33b6c-2814-4b35-9fc6-4912b280928f</CodesignProvision>
+		<CodesignEntitlements>Platforms/iOS/Entitlements.Release.plist</CodesignEntitlements>
+		<TargetDeviceFamilies>iPhone</TargetDeviceFamilies>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <ApplicationVersion>5</ApplicationVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <ApplicationVersion>5</ApplicationVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<MauiIcon Include="Resources/Images/AppIcon/appicon.png" />
+		<MauiImage Include="Resources\Images\*" Exclude="Resources\Images\*.svg;Resources\Images\AppIcon\appicon.png" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		<MauiFont Include="Resources\Fonts\*" />
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiIosInfoPlist Include="Platforms/iOS/Info.plist" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.90" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.7" />
+	</ItemGroup>
+
+</Project>

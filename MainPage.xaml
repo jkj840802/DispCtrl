@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    x:Class="DispCtrl.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.UseSafeArea="true">
+
+    <ContentPage.Content>
+        <VerticalStackLayout Spacing="0" BackgroundColor="#F5F5F5" Padding="{OnPlatform iOS='0,0,0,0'}">
+            <!-- Dark Header -->
+            <Border BackgroundColor="#1D1D1D" Padding="12" Margin="12,0" 
+                    WidthRequest="{OnPlatform Android=330, iOS=350}" 
+                    HorizontalOptions="{OnPlatform Android=Center, iOS=FillAndExpand}"
+                    HeightRequest="200">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="12">
+                    <!-- Top Row: Wi-Fi Status & Title & Settings Icon -->
+                    <Grid ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center" HeightRequest="36">
+                        <Image Source="wifi.png" WidthRequest="24" HeightRequest="24" Grid.Column="0" />
+                        <Label x:Name="CommStatusLabel"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           Grid.Column="1" />
+                        <ImageButton
+                        Source="settings.png"
+                        Clicked="OnSettingsClicked"
+                        BackgroundColor="Transparent"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Grid.Column="2" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="Auto,Auto" ColumnSpacing="8">
+                        <!-- 연결 버튼 (이미지 그대로) -->
+                        <Border
+                            Grid.Row="0" Grid.Column="0"
+                            Stroke="#555"
+                            StrokeThickness="1"
+                            BackgroundColor="Transparent"
+                            Padding="0"
+                            WidthRequest="48"
+                            HeightRequest="48">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="0" />
+                            </Border.StrokeShape>
+
+                            <ImageButton
+                                x:Name="ConnectButton"
+                                Source="plug_300x300_thick.png"
+                                Clicked="OnConnectButtonClicked"
+                                BackgroundColor="Transparent"
+                                WidthRequest="48"
+                                HeightRequest="48" />
+                        </Border>
+
+                        <!-- 토글되는 텍스트만 처리 -->
+                        <Label
+                            x:Name="ConnectLabel"
+                            FontSize="14"
+                            TextColor="White"
+                            HorizontalOptions="Center"
+                            Grid.Row="1" Grid.Column="0"
+                            Text="연결">
+                            <Label.Triggers>
+                                <!-- IsConnected = true 일 때 -->
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding IsConnected}"
+                                             Value="True">
+                                    <Setter Property="Text" Value="연결 해제" />
+                                </DataTrigger>
+                                <!-- IsConnected = false 일 때 -->
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding IsConnected}"
+                                             Value="False">
+                                    <Setter Property="Text" Value="연결" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <!-- 전체메시지 버튼 -->
+                        <Border
+                            Grid.Row="0" Grid.Column="1"
+                            Stroke="#555"
+                            StrokeThickness="1"
+                            BackgroundColor="Transparent"
+                            Padding="0"
+                            WidthRequest="48"
+                            HeightRequest="48">
+                            <Border.StrokeShape>
+                                <!-- CornerRadius="0" 으로 완전한 사각형 -->
+                                <RoundRectangle CornerRadius="0" />
+                            </Border.StrokeShape>
+
+                            <ImageButton
+                                Source="bolt_300x300_thick.png"
+                                Clicked="OnSendButtonClicked"
+                                BackgroundColor="Transparent"
+                                WidthRequest="48"
+                                HeightRequest="48" />
+                        </Border>
+                        <Label Text="전체메세지" TextColor="White" FontSize="14"  HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" />
+
+                        <!-- 제목수정 버튼 -->
+                        <Border
+                            Grid.Row="0" Grid.Column="2"
+                            Stroke="#555"
+                            StrokeThickness="1"
+                            BackgroundColor="Transparent"
+                            Padding="0"
+                            WidthRequest="48"
+                            HeightRequest="48">
+                            <Border.StrokeShape>
+                                <!-- CornerRadius="0" 으로 완전한 사각형 -->
+                                <RoundRectangle CornerRadius="0" />
+                            </Border.StrokeShape>
+
+                            <ImageButton
+                                Source="pencil_300x300_thick.png"
+                                Clicked="OnEditTitleClicked"
+                                BackgroundColor="Transparent"
+                                WidthRequest="48"
+                                HeightRequest="48" />
+                        </Border>
+                        <Label Text="제목수정" TextColor="White" FontSize="14"  HorizontalOptions="Center" Grid.Row="1" Grid.Column="2" />
+
+                        <!-- 하단메시지 버튼 -->
+                        <Border
+                            Grid.Row="0" Grid.Column="3"
+                            Stroke="#555"
+                            StrokeThickness="1"
+                            BackgroundColor="Transparent"
+                            Padding="0"
+                            WidthRequest="48"
+                            HeightRequest="48">
+                            <Border.StrokeShape>
+                                <!-- CornerRadius="0" 으로 완전한 사각형 -->
+                                <RoundRectangle CornerRadius="0" />
+                            </Border.StrokeShape>
+
+                            <ImageButton
+                                Source="chat_300x300_thick.png"
+                                Clicked="OnBottomMessageClicked"
+                                BackgroundColor="Transparent"
+                                WidthRequest="48"
+                                HeightRequest="48" />
+                        </Border>
+                        <Label Text="하단메시지" TextColor="White" FontSize="14"  HorizontalOptions="Center" Grid.Row="1" Grid.Column="3" />
+                    </Grid>
+
+                    <!-- Divider -->
+                    <BoxView HeightRequest="1" Color="#555" />
+                    <!-- Connection Status -->
+                    <Label x:Name="ConnectionStatusLabel"
+                       Text=""
+                       HorizontalOptions="Center"
+                       FontSize="16"
+                       TextColor="White" />
+                </VerticalStackLayout>
+            </Border>
+            <!-- White Content -->
+
+            <!-- White Content -->
+            <VerticalStackLayout BackgroundColor="#F5F5F5" Padding="12" Spacing="16">
+                <!-- Sensor Inputs -->
+                <Border Stroke="#CCCCCC" StrokeThickness="1" Padding="12" BackgroundColor="White" Margin="0,-8,0,0" 
+                        WidthRequest="{OnPlatform Android=330, iOS=350}"
+                        HeightRequest="{OnPlatform Android=395,iOS=345}"
+                        HorizontalOptions="{OnPlatform Android=Center, iOS=FillAndExpand}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPageTapped" />
+                    </Border.GestureRecognizers>
+
+                    <VerticalStackLayout Spacing="16">
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="12">
+
+                            <!-- 수온 -->
+                            <Label Text="수온 (°C)"
+                                VerticalOptions="Center"
+                                Grid.Row="0" Grid.Column="0"
+                                TextColor="Black"/>
+                            <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                                <Entry x:Name="WaterTempEntry"
+                                    Placeholder="예: 28.5"
+                                    Keyboard="Numeric"
+                                    TextChanged="WaterTempEntryTextChanged"
+                                    TextColor="Black"
+                                    HorizontalTextAlignment="Center"
+                                    BackgroundColor="Transparent" />
+                                <BoxView HeightRequest="1" Color="#AAAAAA" />
+                            </VerticalStackLayout>
+
+                            <!-- 탁도 -->
+                            <Label Text="탁도 (NTU)"
+                                VerticalOptions="Center"
+                                Grid.Row="1" Grid.Column="0"
+                                TextColor="Black"/>
+                            <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                                <Entry x:Name="TurbidityEntry"
+                                    Placeholder="예: 22.0"
+                                    Keyboard="Numeric"
+                                    TextChanged="TurbidityEntryTextChanged"
+                                    TextColor="Black"
+                                    HorizontalTextAlignment="Center"
+                                    BackgroundColor="Transparent" />
+                                <BoxView HeightRequest="1" Color="#AAAAAA" />
+                            </VerticalStackLayout>
+
+                            <!-- 온도 -->
+                            <Label x:Name="IndoorTempLabel"
+                                Text="온도 (°C)"
+                                VerticalOptions="Center"
+                                Grid.Row="2" Grid.Column="0"
+                                TextColor="Black"/>
+                            <VerticalStackLayout Grid.Row="2" Grid.Column="1">
+                                <Entry x:Name="IndoorTempEntry"
+                                    Placeholder="예: 23.0"
+                                    Keyboard="Numeric"
+                                    TextChanged="IndoorTempEntryTextChanged"
+                                    TextColor="Black"
+                                    HorizontalTextAlignment="Center"
+                                    BackgroundColor="Transparent"
+                                    IsEnabled="False" />
+                                <BoxView HeightRequest="1" Color="#AAAAAA" />
+                            </VerticalStackLayout>
+
+                            <!-- 습도 -->
+                            <Label x:Name="HumidityLabel"
+                                Text="습도 (%)"
+                                VerticalOptions="Center"
+                                Grid.Row="3" Grid.Column="0"
+                                TextColor="Black"/>
+                            <VerticalStackLayout Grid.Row="3" Grid.Column="1">
+                                <Entry x:Name="HumidityEntry"
+                                    Placeholder="예: 60"
+                                    Keyboard="Numeric"
+                                    HorizontalTextAlignment="Center"
+                                    TextChanged="HumidityEntryTextChanged"
+                                    TextColor="Black"
+                                    BackgroundColor="Transparent"
+                                    IsEnabled="False" />
+                                <BoxView HeightRequest="1" Color="#AAAAAA" />
+                            </VerticalStackLayout>
+
+                            <!-- Data Status -->
+                            <Label x:Name="StatusLabel"
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding StatusText}"
+                                HorizontalOptions="Center"
+                                FontSize="16"
+                                TextColor="Black" 
+                                Margin="0,12,0,0"/>
+
+                            <Button x:Name="ValueSendButton"
+                                Grid.Row="5"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Text="데이터 전송"
+                                Clicked="OnValueSendClicked"
+                                BackgroundColor="White"
+                                BorderColor="DarkGrey"
+                                BorderWidth="1"
+                                CornerRadius="3" 
+                                TextColor="Black" 
+                                Margin="0,10,0,0"/>
+
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+                
+                <Border
+                    Stroke="#CCCCCC"
+                    StrokeThickness="1"
+                    BackgroundColor="White"
+                    Margin="0,-12,0,0"
+                    Padding="1" 
+                    WidthRequest="{OnPlatform Android=330, iOS=350}"
+                    HeightRequest="{OnPlatform Android=170, iOS=150}"
+                    HorizontalOptions="{OnPlatform Android=Center, iOS=FillAndExpand}">
+                    <Border.StrokeShape>
+                        <!-- 모서리를 약간 둥글게 하고 싶으면 숫자를 조절하세요 -->
+                        <RoundRectangle CornerRadius="6" />
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="20" Padding="30">
+                        <Button x:Name="ManualToggleButton"
+                            Text="온도·습도 자동감지"
+                            Clicked="OnManualToggleClicked"
+                            BackgroundColor="#808080"
+                            TextColor="White" 
+                            Margin="0,-10,0,0"/>
+
+                        <Button Text="긴급메시지"
+                            Clicked="OnUrgentMessageClicked"
+                            BackgroundColor="#808080"
+                            TextColor="White" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage x:Class="DispCtrl.OffSchedulePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="디스플레이 자동 On/Off 설정">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- ★ 자동 On/Off 사용 토글 -->
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <Label Text="자동 On/Off 사용"
+                       FontSize="18"
+                       VerticalOptions="Center" />
+                <Switch x:Name="AutoScheduleSwitch"
+                        Toggled="OnAutoScheduleToggled"
+                        VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <!-- 페이지 제목 -->
+            <Label Text="디스플레이 자동 On/Off 설정"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Off 시간 선택 -->
+            <Label Text="Off 시간" FontSize="18" />
+            <TimePicker x:Name="OffTimePicker" Time="22:30:00" Format="t" />
+
+            <!-- On 시간 선택 -->
+            <Label Text="On 시간" FontSize="18" />
+            <TimePicker x:Name="OnTimePicker" Time="05:30:00" Format="t" />
+
+            <!-- 저장 버튼 -->
+            <Button Text="저장"
+                    Clicked="OnSaveClicked"
+                    FontSize="20"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource White}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

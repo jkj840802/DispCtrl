@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DispCtrl.BottomMessagePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="하단 메세지 수정"
+    Background="{DynamicResource PageBackgroundBrush}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18" Background="{DynamicResource PageBackgroundBrush}">
+
+            <!-- 안내 레이블 -->
+            <Label Text="하단에 표시할 메시지를 입력하세요"
+                FontSize="18"
+                HorizontalOptions="Start">
+                <Label.TextColor>
+                    <AppThemeBinding Light="{StaticResource Black}" Dark="{StaticResource White}" />
+                </Label.TextColor>
+            </Label>
+
+            <!-- 1) 메시지 입력란 -->
+            <StackLayout Orientation="Horizontal" Spacing="12">
+                <Label Text="메시지:" VerticalOptions="Center">
+                    <Label.TextColor>
+                        <AppThemeBinding Light="{StaticResource Black}" Dark="{StaticResource White}" />
+                    </Label.TextColor>
+                </Label>
+
+                <!-- Entry + 밑줄 + 단위 표시 -->
+                <Grid RowDefinitions="Auto,1,Auto" WidthRequest="240">
+                    <!-- Entry -->
+                    <Entry x:Name="BottomMessageEntry"
+                           Grid.Row="0"
+                           Placeholder="최대 18자"
+                           TextChanged="OnButtonEntryTextChanged"
+                           Unfocused="OnBottomMessageUnfocused" >
+
+                           <Entry.TextColor>
+                               <AppThemeBinding Light="Black" Dark="White" />
+                           </Entry.TextColor>
+                           <Entry.PlaceholderColor>
+                               <AppThemeBinding Light="#A9A9A9" Dark="#CCCCCC"/>
+                           </Entry.PlaceholderColor>
+                    </Entry>
+
+                    <!-- 단위 수 표시 -->
+                    <Label x:Name="BottomMessageUnitLabel"
+                           Grid.Row="2"
+                           Text="0 / 16"
+                           FontSize="12"
+                           HorizontalOptions="End"
+                           Margin="0,-32,0,0" />
+                </Grid>
+            </StackLayout>
+
+            <!-- 2) 색상 선택 -->
+            <StackLayout Orientation="Horizontal" Spacing="12">
+                <Label Text="색상:" VerticalOptions="Center">
+                    <Label.TextColor>
+                        <AppThemeBinding Light="{StaticResource Black}" Dark="{StaticResource White}" />
+                    </Label.TextColor>
+                </Label>
+
+                <Grid WidthRequest="150" HeightRequest="40">
+                    <Entry x:Name="BottomColorEntry"
+                           Text="색상 선택"
+                           FontSize="14"
+                           TextColor="#A9A9A9"
+                           VerticalOptions="Center"
+                           IsReadOnly="True"
+                           Background="{DynamicResource PageBackgroundBrush}"
+                           HeightRequest="40"
+                           Margin="10,0,0,0" />
+
+                    <Picker x:Name="BottomColorPicker"
+                            IsVisible="False" 
+                            SelectedIndexChanged="BottomColorPicker_SelectedIndexChanged"
+                            HeightRequest="40">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>빨강색</x:String>
+                                <x:String>초록색</x:String>
+                                <x:String>노랑색</x:String>
+                                <x:String>파랑색</x:String>
+                                <x:String>자주색</x:String>
+                                <x:String>청록색</x:String>
+                                <x:String>흰색</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Button BackgroundColor="Transparent" Clicked="BottomColorPickerButton_Clicked" />
+                </Grid>
+            </StackLayout>
+
+            <!-- 3) 전송 버튼 -->
+            <Button Text="전송"
+                    Clicked="OnBottomSendClicked"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    Margin="0,20,0,0" />
+
+            <!-- 4) 상태 표시 -->
+            <Label x:Name="BottomStatusLabel"
+                   Text=" "
+                   FontSize="16"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- 메인 테마 정의: MAUI 템플릿의 기본 테마 이름이 Maui.MainTheme 라고 가정 -->
+  <style name="Maui.MainTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- 포커스 없을 때 언더라인 색 -->
+    <item name="android:colorControlNormal">#AAAAAA</item>
+    <!-- 포커스 있을 때 언더라인(Accent) 색 -->
+    <item name="colorControlActivated">@android:color/holo_blue_light</item>
+  </style>
+</resources>

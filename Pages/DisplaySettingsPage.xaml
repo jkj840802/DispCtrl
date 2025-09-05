@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DispCtrl.DisplaySettingsPage"
+    Title="전광판 설정"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Padding="20" Spacing="20" BackgroundColor="#F5F5F5">
+
+        <Label Text="전광판 설정"
+       FontSize="24"
+       FontAttributes="Bold"
+       HorizontalOptions="Center"
+       TextColor="Black" />
+
+        <!-- 밝기 -->
+        <Label Text="밝기 조절"
+       FontSize="18"
+       TextColor="Black" />
+
+        <Slider
+            x:Name="BrightnessSlider"
+            Minimum="0"
+            Maximum="4"
+            Value="2"
+            Margin="0,0,0,10"
+            MinimumTrackColor="#ADD8E6"
+            ThumbColor="#ADD8E6"
+            ValueChanged="OnBrightnessSliderValueChanged" />
+
+        <Button
+            Text="밝기 설정"
+            Clicked="OnSetBrightnessClicked"
+            BackgroundColor="#1E90FF"
+            TextColor="White" />
+
+        <Button Text="시간동기화"
+            Clicked="OnSyncTimeClicked" 
+            BackgroundColor="#1E90FF"
+            TextColor="White" />
+
+        <!-- 리셋 -->
+        <Button Text="전광판 리셋"
+            Clicked="OnResetDisplayClicked"
+            BackgroundColor="#1E90FF"
+            TextColor="White" />
+
+        <Button
+            x:Name="DisplayToggleButton"
+            Text="전광판 끄기"
+            Clicked="OnDisplayOnOffClicked"
+            BackgroundColor="#1E90FF"
+            TextColor="White" />
+
+    </VerticalStackLayout>
+</ContentPage>
